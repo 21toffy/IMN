@@ -9,8 +9,8 @@ from django.views.generic import (TemplateView, ListView,
 def home(request):
     about =About.objects.all()
     services=Services.objects.all()
-    blog1=Blog.objects.all()[0]
-    blog2=Blog.objects.all()[1]
+    blog1=Blog.objects.all().first()
+    blog2=Blog.objects.all().first()
     contact =Contact.objects.all()
     clientels =Clientels.objects.all()
     testimonials=Testimonials.objects.all()

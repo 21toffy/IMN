@@ -251,11 +251,14 @@ body{
 	  <div class="section-title" style="padding: 40px 0px 0px 0px;">
 			<h1 class="" style="color: #192965;"><span>our</span> <span style="color: #ff0000;">Projects</span> </h1>
 		</div>
+		{% if blog1 %}
+		  
+		
 
 	  <div class="row justify-content-center align-items-center">
 			<div class="col-sm-12 col-lg-5 col-md-6">
 				<div class="bd-example" style="text-align: center;">
-						<img  style="width: 350px; height: 350px;" src="{{blog1.img1.url}}">
+						<img  style="width: 300px; height: 350px;" src="{{blog1.img1.url}}">
 				</div>
 			</div>
 
@@ -270,7 +273,7 @@ body{
 			</div>
 		</div>
 
-
+		{% endif %}
 
 <div class="container" style="text-align: center; padding:- 0 -0 0;">
 

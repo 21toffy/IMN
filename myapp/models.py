@@ -44,11 +44,12 @@ class Gallery(models.Model):
         return self.blog
 
 class Contact(models.Model):
-    name:models.CharField(max_length=25,default='tofunmi')
+    name=models.CharField(max_length=25,default='tofunmi')
     phone=models.CharField(max_length=11)
     email=models.EmailField(null=True, blank=True)
+
     def __str__(self):
-        return self.phone
+        return self.name
 
 class Clientels(models.Model):
     name=models.CharField(max_length=25)
@@ -62,3 +63,10 @@ class Testimonials(models.Model):
     text=models.CharField(max_length=50)
     def __str__(self):
         return self.text[:20]
+
+
+class Socials(models.Model):
+    facebook=models.URLField(null=True, blank=False)
+    instagram=models.URLField(null=True, blank=False)
+    twitter = models.URLField(null=True, blank=False)
+    youtube = models.URLField(null=True, blank=False)

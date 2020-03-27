@@ -1,5 +1,5 @@
-from django.shortcuts import render, get_object_or_404
-from . models import About, Services, Blog, Contact, Clientels, Testimonials, Gallery
+from django.shortcuts import render, get_object_or_404, HttpResponse
+from . models import About, Services, Blog, Contact, Clientels, Testimonials, Gallery, Socials
 from django.utils import timezone
 from django.views.generic import (TemplateView, ListView,
                                     DetailView, CreateView,
@@ -15,6 +15,8 @@ def home(request):
     clientels =Clientels.objects.all()
     testimonials=Testimonials.objects.all()
     gallery=Gallery.objects.all()
+    socials=Socials.objects.all().first()
+
     context={
         'about':about,
         'services':services,
@@ -24,6 +26,7 @@ def home(request):
         'clientels':clientels,
         'testimonials':testimonials,
         'gallery':gallery,
+        'socials':socials,
     }
 
     return render(request, 'index.html', context)

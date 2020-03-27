@@ -144,15 +144,15 @@ body{
 .carousel-item-prev{
     display:block;
 }
-.testimonials{
+/* .testimonials{
 	padding: 100px 0px 140px 0px;
     background: ;
     width: 100%;
     overflow: hidden;
-    background: #fff;
+    background: #fc0f0fee;
     text-align: center;
     color: #000;
-}
+} */
 
 @media (max-width: 768px)
 .clients {
@@ -561,6 +561,9 @@ textarea.input {
   right: 0;
   bottom: 0;
   background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
   z-index: -1;
 }
 

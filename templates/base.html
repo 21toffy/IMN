@@ -9,6 +9,8 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
 
 
 
@@ -179,7 +181,14 @@ nav ul li a {
 
 
 
+      $('.js-anchor').click(function (evt) {
+        evt.preventDefault();
+        var anchor = $(this).text();
 
+        $('html, body').animate({
+            scrollTop: $('#' + anchor).offset().top
+        }, 1500);
+    });
 
 
 
@@ -199,12 +208,11 @@ nav ul li a {
                   <i class="fa fa-bars fa-2x"></i>
             </div>
             <div class="logo">
-                  <a href="{% url 'myapp:home' %}"><img src="././media/background/IMN_LOGO-Recovered1.png" alt=""> </a>
+                        <a href="{% url 'myapp:home' %}"><img src="{% static 'img/IMN_LOGO-Recovered1.png' %}" alt=""> </a>
             </div>
             <div class="menu">
                   <ul class="navbar-right">
-                        <li><a href="#our_services_section">Our Services</a></li>
-                        <li><a href="#our_services_section">Our Services</a></li>
+                        <li><a href="{% url 'myapp:home' %}#our_services_section">Our Services</a></li>
                         <li><a href="{% url 'myapp:home' %}#about_section">About</a></li>
                         <li><a href="{% url 'myapp:home' %}#projects_section">Projects</a></li>
                         <li><a href="{% url 'myapp:post_list' %}">blog</a></li>
@@ -241,8 +249,12 @@ nav ul li a {
 			<!-- /row -->
 		</div>
 		<!-- /container -->
-	</footer>
+      </footer>
+
 <script src="{% static 'js/main.js' %}"></script>
+<script src="{% static 'js/mains.js' %}">
+</script>
+
 
 </body>
 </html>

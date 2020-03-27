@@ -43,15 +43,15 @@
         
         <div class="col-lg-7 col-md-offset-3 col-md-6  col-sm-12">
           <div class="bd-example">
-              <a href="{% url 'myapp:post_detail' blo.pk %}"><h3 class="text-center">{{blo.title}}</h3></a><br>
-              <p class="text-left">{{blo.text |slice:":500"}}</p>
+              <a href="{% url 'myapp:post_detail' blo.pk %}"><h2 class="text-center animated slideInLeft delay-0.5s">{{blo.title}}</h2></a><br>
+              <p class="text-left animated slideInLeft	delay-0.5s">{{blo.text |slice:":500"}}</p>
           </div>
           
         </div>
         
   
         <div class="col-lg-5 col-md-6 col-sm-12">
-          <div class="pl-68">
+          <div class="pl-68 animated slideInRight	delay-0.5s">
               <img  style="width: 350px; height: 350px;" src="{{blo.img1.url}}"> 
           </div>
          

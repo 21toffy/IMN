@@ -9,8 +9,8 @@ from django.views.generic import (TemplateView, ListView,
 def home(request):
     about =About.objects.all()
     services=Services.objects.all()
-    blog1=Blog.objects.all().first()
-    blog2=Blog.objects.all().first()
+    blog=get_object_or_404(Blog, title__contains='lagos influencers hangout')
+ 
     contact =Contact.objects.all()
     clientels =Clientels.objects.all()
     testimonials=Testimonials.objects.all()
@@ -20,8 +20,7 @@ def home(request):
     context={
         'about':about,
         'services':services,
-        'blog1':blog1,
-        'blog2':blog2,
+        'blog':blog,
         'contact':contact,
         'clientels':clientels,
         'testimonials':testimonials,

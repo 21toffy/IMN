@@ -251,24 +251,24 @@ body{
 	  <div class="section-title" style="padding: 40px 0px 0px 0px;">
 			<h1 class="" style="color: #192965;"><span>our</span> <span style="color: #ff0000;">Projects</span> </h1>
 		</div>
-		{% if blog1 %}
+		{% if blog %}
 		  
 		
 
 	  <div class="row justify-content-center align-items-center">
 			<div class="col-sm-12 col-lg-5 col-md-6">
 				<div class="bd-example" style="text-align: center;">
-						<img  style="width: 300px; height: 350px;" src="{{blog1.img1.url}}">
+						<img  style="width: 300px; height: 350px;" src="{{blog.img1.url}}">
 				</div>
 			</div>
 
 			<div class="col-sm-12 col-lg-7 col-md-6">
 				<div class="pl-68">
-						<a href="{% url 'myapp:post_detail' blog1.pk %}"><h3 class="text-capitalize text-center" style="padding-top: 70px; font-weight:bolder; ">{{blog1.title}}</h3></a>
+						<a href="{% url 'myapp:post_detail' blog.pk %}"><h3 class="text-capitalize text-center" style="padding-top: 70px; font-weight:bolder; ">{{blog.title}}</h3></a>
 						
-						<p class="text-left">{{blog1.text |slice:":500"}}</p>
+						<p class="text-left">{{blog.text |slice:":500"}}</p>
 						<button class="main-btn float-right"  >
-								<a style="color:#fff;" href="{% url 'myapp:post_detail' blog1.pk %}">read more</a> </button>
+								<a style="color:#fff;" href="{% url 'myapp:post_detail' blog.pk %}">read more</a> </button>
 				</div>
 			</div>
 		</div>

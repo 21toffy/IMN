@@ -170,7 +170,7 @@ body{
   <!-- Home -->
 <div id="home">
 	<!-- background image -->
-	<div class="section-bg" style=" opacity:0.8; filter: brightness(30%); background-image: url(././media/background/background2.jpg)" data-stellar-background-ratio="0.5"></div>
+	<div class="section-bg" style=" opacity:0.8; filter: brightness(30%); background-image: url(././static/img/background2.jpg)" data-stellar-background-ratio="0.5"></div>
 	<!-- /background image -->
 	<div class="home-wrapper">
 			<!-- container -->
@@ -208,7 +208,7 @@ body{
 					<div class="col-md-4" style="padding-bottom:50px;">
 							<div class="card shadow">
 								<div class="card-body">
-									<div class="py-3 text-center"> <img src="{{service.icon.url}}" class="card-img-top" width="200"  alt=""></div>
+									<div class="py-3 text-center" > <img src="{{service.icon.url}}" class="card-img-top" width="200"  alt=""></div>
 									<div class="card-body">
 										<a href=""><h4 class="text-center">{{service.title}}</h4></a>
 									
@@ -253,13 +253,13 @@ body{
 		</div>
 
 	  <div class="row justify-content-center align-items-center">
-			<div class="col-lg-5 col-md-6">
-				<div class="bd-example">
+			<div class="col-sm-12 col-lg-5 col-md-6">
+				<div class="bd-example" style="text-align: center;">
 						<img  style="width: 350px; height: 350px;" src="{{blog1.img1.url}}">
 				</div>
 			</div>
 
-			<div class="col-lg-7 col-md-6">
+			<div class="col-sm-12 col-lg-7 col-md-6">
 				<div class="pl-68">
 						<a href="{% url 'myapp:post_detail' blog1.pk %}"><h3 class="text-capitalize text-center" style="padding-top: 70px; font-weight:bolder; ">{{blog1.title}}</h3></a>
 						

@@ -1,0 +1,1 @@
+web: gunicorn IMN:app --log-file -

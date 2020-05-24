@@ -14,7 +14,7 @@ SECRET_KEY = 'rp*$49mebv^p2t163h%ci_zjuh8%)+3wn7ld5l8%o$!$t#$+5&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['ec2-3-19-237-77.us-east-2.compute.amazonaws.com', '3.19.237.77', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['localhost']
 
 
 # Application definition
@@ -116,16 +116,17 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/2.0/howto/static-files/
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 STATICFILES_DIRS = (	
      os.path.join(BASE_DIR, 'static'),	
 )	
-STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static')	
+STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'staticfiles')	
 
 STATIC_URL = '/static/'
 
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'

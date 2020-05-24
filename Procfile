@@ -1,1 +1,1 @@
-web: gunicorn IMN.wsgi --log-file -
+web: gunicorn IMN.wsgi:application --log-file - --log-level debug

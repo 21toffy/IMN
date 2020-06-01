@@ -141,13 +141,15 @@ USE_TZ = True
 # STATIC_URL = '/static/'
 
 
-# MEDIA_URL = '/media/'
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 # # db_from_env = dj_database_url.config(conn_max_age=500)
 # # DATABASES['default'].update(db_from_env)
 # django_heroku.settings(locals())
+
+
 
 
 STATIC_URL = '/static/'

@@ -1,6 +1,9 @@
 
 import os
 import django_heroku 
+import cloudinary
+import warnings
+warnings.filterwarnings("ignore", message="No directory at", module="whitenoise.base" )
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -15,7 +18,7 @@ SECRET_KEY = 'rp*$49mebv^p2t163h%ci_zjuh8%)+3wn7ld5l8%o$!$t#$+5&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', 'influenzmedianigeria.herokuapp.com']
+ALLOWED_HOSTS = ['influenzmedianigeria.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -27,6 +30,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cloudinary',
     'myapp',
 ]
 
@@ -144,10 +148,13 @@ USE_TZ = True
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
-# # db_from_env = dj_database_url.config(conn_max_age=500)
-# # DATABASES['default'].update(db_from_env)
-# django_heroku.settings(locals())
+
+
+cloudinary.config( 
+  cloud_name = "toffy", 
+  api_key = "393415259869955", 
+  api_secret = "XISdAJ5DC6g01zRqpZxxWrYZnVs" 
+)
 
 
 

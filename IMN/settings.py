@@ -32,6 +32,8 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -64,25 +66,25 @@ WSGI_APPLICATION = 'IMN.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
-
-
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'imn',
-        'USER': 'imnadmin',
-        'PASSWORD': 'nmi',
-        'HOST': 'localhost',
-        'PORT': '',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'imn',
+#         'USER': 'imnadmin',
+#         'PASSWORD': 'nmi',
+#         'HOST': 'localhost',
+#         'PORT': '',
+#     }
+# }
 
 
 # DATABASES = {
@@ -129,21 +131,42 @@ USE_L10N = True
 USE_TZ = True
 
 
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+# PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
-STATICFILES_DIRS = (	
-     os.path.join(BASE_DIR, 'static'),	
-)	
-STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'staticfiles')	
+# STATICFILES_DIRS = (	
+#      os.path.join(BASE_DIR, 'static'),	
+# )	
+# STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'staticfiles')	
+
+# STATIC_URL = '/static/'
+
+
+# MEDIA_URL = '/media/'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+# # db_from_env = dj_database_url.config(conn_max_age=500)
+# # DATABASES['default'].update(db_from_env)
+# django_heroku.settings(locals())
+
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR,'static')
+]
+STATIC_ROOT = os.path.join(BASE_DIR,"staticfiles")
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+ACCOUNT_AUTHENTICATION_METHOD = 'username'
+ACCOUNT_EMAIL_REQUIRED = False
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+SITE_ID = 1
 
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
-# db_from_env = dj_database_url.config(conn_max_age=500)
-# DATABASES['default'].update(db_from_env)
-django_heroku.settings(locals())
+# To reconfigure the production database
+import dj_database_url
+
+prod_db  =  dj_database_url.config(conn_max_age=500)
+
+DATABASES['default'].update(prod_db)
 

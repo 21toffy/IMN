@@ -15,7 +15,7 @@ SECRET_KEY = 'rp*$49mebv^p2t163h%ci_zjuh8%)+3wn7ld5l8%o$!$t#$+5&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', 'https://influenzmedianigeria.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', 'influenzmedianigeria.herokuapp.com']
 
 
 # Application definition

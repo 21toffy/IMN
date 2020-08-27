@@ -124,84 +124,7 @@
     </section>
     <!-- service Area End -->  
     <!--? Pricing Card Start -->
-    <section class="pricing-card-area section-padding2">
-        <div class="container">
-            <!-- Section Tittle -->
-            <div class="row justify-content-center">
-                <div class="col-xl-6 col-lg-8 col-md-10 col-sm-10">
-                    <div class="section-tittle text-center mb-100">
-                        <!-- <p>Our pricing plan for you</p> -->
-                        <h2>popular trainings.</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-10">
-                    <div class="single-card text-center mb-30">
-                        <div class="card-top">
-                            <p>Single Package</p>
-                            <h4>Only Broadband connection</h4>
-                        </div>
-                        <div class="card-mid">
-                            <h4>$20.00 <span>/ mo</span></h4>
-                        </div>
-                        <div class="card-bottom">
-                            <ul>
-                                <li>Line Rental Included</li>
-                                <li>12 Month Contract</li>
-                                <li>No Activation Charges</li>
-                                <li>Up to 12Mbps average Speed</li>
-                                <li>Enjoy family on weekends</li>
-                            </ul>
-                            <a href="#" class="borders-btn">View Packages</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-10">
-                    <div class="single-card text-center mb-30">
-                        <div class="card-top">
-                            <p>Half Package</p>
-                            <h4>Broadband & TV connection</h4>
-                        </div>
-                        <div class="card-mid">
-                            <h4>$25.00 <span>/ mo</span></h4>
-                        </div>
-                        <div class="card-bottom">
-                            <ul>
-                                <li>Line Rental Included</li>
-                                <li>12 Month Contract</li>
-                                <li>No Activation Charges</li>
-                                <li>Up to 12Mbps average Speed</li>
-                                <li>Enjoy family on weekends</li>
-                            </ul>
-                            <a href="#" class="borders-btn">View Packages</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-10">
-                    <div class="single-card text-center mb-30">
-                        <div class="card-top">
-                            <p>Full  Package</p>
-                            <h4>TV, Broadband And Phone</h4>
-                        </div>
-                        <div class="card-mid">
-                            <h4>$29.00 <span>/ mo</span></h4>
-                        </div>
-                        <div class="card-bottom">
-                            <ul>
-                                <li>Line Rental Included</li>
-                                <li>12 Month Contract</li>
-                                <li>No Activation Charges</li>
-                                <li>Up to 12Mbps average Speed</li>
-                                <li>Enjoy family on weekends</li>
-                            </ul>
-                            <a href="#" class="borders-btn">View Packages</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!--  -->
     <!-- Pricing Card End -->
     <!-- Latest Offers Start -->
     <div class="latest-wrapper">
@@ -312,45 +235,28 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="home-blog-single mb-30">
-                            <div class="blog-img-cap">
-                                <div class="blog-img">
-                                    <img src="static/img/gallery/home-blog1.png" alt="">
-                                </div>
-                                <div class="blog-cap">
-                                    <h3><a href="blog_details.html">The purpose of lolght invera jgrlie.</a></h3>
-                                    <p>January 22, 2020</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="home-blog-single mb-30">
-                            <div class="blog-img-cap">
-                                <div class="blog-img">
-                                    <img src="static/img/gallery/home-blog2.png" alt="">
-                                </div>
-                                <div class="blog-cap">
-                                    <h3><a href="blog_details.html">The purpose of lolght invera jgrlie.</a></h3>
-                                    <p>January 22, 2020</p>
+                    
+                    {% for blog in blogs %}
+                        <div class="col-lg-4 col-md-6">
+                            <div class="home-blog-single mb-30">
+                                
+                                
+                                
+                                <div class="blog-img-cap">
+                                    {% if blog.landing_image %}
+                                        <div class="blog-img">
+                                            <img src="{{blog.landing_image.url}}" alt="">
+                                        </div>
+                                    {% endif %}
+                                    <div class="blog-cap">
+                                        <h3><a href="{% url 'myapp:post_detail' blog.slug %}">{{blog.title}}</a></h3>
+                                        <p>{{blog.time}}</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="home-blog-single mb-30">
-                            <div class="blog-img-cap">
-                                <div class="blog-img">
-                                    <img src="static/img/gallery/home-blog3.png" alt="">
-                                </div>
-                                <div class="blog-cap">
-                                    <h3><a href="blog_details.html">The purpose of lolght invera jgrlie.</a></h3>
-                                    <p>January 22, 2020</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
+
                 </div>
             </div>
         </section>

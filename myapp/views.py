@@ -7,26 +7,17 @@ from django.views.generic import (TemplateView, ListView,
 
 
 def home(request):
-    about =About.objects.all()
-    services=Services.objects.all()
+    print('if blog')
     if Blog:
-        blog=get_object_or_404(Blog, title__contains='lagos influencers hangout')
+        blogs=Blog.objects.filter(status=0).order_by('-time')[:3]
+        print(blogs)
     
-    contact =Contact.objects.all()
-    clientels =Clientels.objects.all()
-    testimonials=Testimonials.objects.all()
-    gallery=Gallery.objects.all()
-    socials=Socials.objects.all().first()
+    
 
     context={
-        'about':about,
-        'services':services,
-        'blog':blog,
-        'contact':contact,
-        'clientels':clientels,
-        'testimonials':testimonials,
-        'gallery':gallery,
-        'socials':socials,
+
+        'blogs':blogs,
+
     }
 
     return render(request, 'index.html', context)

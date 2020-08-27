@@ -10,7 +10,6 @@ def home(request):
     print('if blog')
     if Blog:
         blogs=Blog.objects.filter(status=0).order_by('-time')[:3]
-        print(blogs)
     
     
 

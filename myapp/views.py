@@ -9,8 +9,9 @@ from django.views.generic import (TemplateView, ListView,
 def home(request):
     about =About.objects.all()
     services=Services.objects.all()
-    blog=get_object_or_404(Blog, title__contains='lagos influencers hangout')
- 
+    if Blog:
+        blog=get_object_or_404(Blog, title__contains='lagos influencers hangout')
+    
     contact =Contact.objects.all()
     clientels =Clientels.objects.all()
     testimonials=Testimonials.objects.all()
@@ -37,7 +38,7 @@ class AboutView(TemplateView):
 
 class PostListView(ListView):
     model = Blog
-    context_object_name='red'
+    context_object_name='posts'
 
     ''' Returns  the list of views for this View'''
     def get_queryset(self):
@@ -47,3 +48,7 @@ class PostDetailView(DetailView):
     model = Blog
     context_object_name='post_detail'
     
+def contact(request):
+    return render(request, 'contact.html')
+
+

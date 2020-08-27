@@ -1,8 +1,8 @@
-
 import os
 import django_heroku 
 import cloudinary
 import warnings
+
 warnings.filterwarnings("ignore", message="No directory at", module="whitenoise.base" )
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -32,7 +32,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cloudinary',
     'myapp',
-]
+    'application',
+    'users',
+    'django_sass',
+    'blog',
+    ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -77,32 +81,6 @@ DATABASES = {
     }
 }
 
-
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'imn',
-#         'USER': 'imnadmin',
-#         'PASSWORD': 'nmi',
-#         'HOST': 'localhost',
-#         'PORT': '',
-#     }
-# }
-
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'imn',
-#         'USER': 'imnadmin',
-#         'PASSWORD': 'nmi',
-#         'HOST': '127.0.0.1',
-#         'PORT': '5432',
-#     }
-# }
-
-# Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -135,14 +113,7 @@ USE_L10N = True
 USE_TZ = True
 
 
-# PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
-# STATICFILES_DIRS = (	
-#      os.path.join(BASE_DIR, 'static'),	
-# )	
-# STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'staticfiles')	
-
-# STATIC_URL = '/static/'
 
 
 MEDIA_URL = '/media/'
@@ -164,7 +135,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR,'static')
 ]
 STATIC_ROOT = os.path.join(BASE_DIR,"staticfiles")
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 ACCOUNT_AUTHENTICATION_METHOD = 'username'

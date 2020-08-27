@@ -1,0 +1,140 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+{% load static %}
+
+
+   
+    <main>
+    <!--? Hero Start -->
+    <div class="slider-area2">
+        <div class="slider-height2 d-flex align-items-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="hero-cap hero-cap2 pt-50 text-center">
+                            <h2>About US</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Hero End -->
+    <!--? About 1 Start-->
+    <section class="about-low-area section-padding2">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-xl-5 col-lg-6 col-md-9">
+                    <!-- about-img -->
+                    <div class="about-img">
+                        <img src="{% static 'img/gallery/about1.png' %}"  alt="">
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-10">
+                    <div class="about-caption mb-50">
+                        <!-- Section Tittle -->
+                        <div class="section-tittle mb-35">
+                            <span></span>
+                            <h2>who we are.</h2>
+                            <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,mod tempor incididunt ut labore et dolore magna aliqua. Utnixm, quis nostrud exercitation ullamc.</p> -->
+                        </div>
+                        <p>
+                            We are proven experts in our fields, Our team consists of experts in different 
+                            professions with who ave work experiance within and outside Nigeria.
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla hic minus doloribus
+                                quis qui aliquid ipsum dicta dolorem excepturi. Placeat 
+                            dolorum necessitatibus vel! Enim perspiciatis, libero architecto sed accusantium earum?
+                        </p>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- About  End-->
+     <!--? Brand Area Start -->
+     <div class="latest-wrapper">
+            <div class="container">
+                <div class="latest-area latest-height  section-bg2" data-background="{% static 'img/gallery/section_bg01.png' %}">
+                    <div class="row  align-items-center justify-content-between">
+                        <div class="col-xl-5 col-lg-7">
+                            <div class="latest-caption">
+                                <h2>subscribe to our news letter.</h2>
+                            </div>
+                        </div>
+                         <div class="col-xl-5 col-lg-5 col-md-10 ">
+                            <div class="latest-subscribe">
+                                <form action="#">
+                                    <input type="email" placeholder="Enter email">
+                                    <button>Get Mails</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Latest Offers End -->
+    <!--? About-2 Area Start -->
+    <section class="about-area2 testimonial-area section-padding30 fix">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class=" col-lg-6 col-md-9 col-sm-9">
+                    <div class="about-caption">
+                        <!-- Section Tittle -->
+                        <div class="section-tittle mb-55">
+                            <h2>What our clients think about us!</h2>
+                        </div>
+                        <div class="h1-testimonial-active">
+                                <!-- Single Testimonial -->
+                                <div class="single-testimonial">
+                                    <div class="testimonial-caption">
+                                        <p>
+                                            I finished from school a year ago and could not apply for jobs because there 
+                                            were no job openings for what i studies in school, but i kept seeing tech related 
+                                            openings everywhere so i took a leap of faith and enrolled in Influence Media Africa's                              
+                                            UiUx training and could apply for jobs in no time. i got a Job even before i completed 
+                                            my training                                    
+                                        .</p>
+                                        <div class="rattiong-caption">
+                                            <span>chuwkuma David<span>Chemistry Graduate</span> </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Single Testimonial -->
+                                <div class="single-testimonial">
+                                    <div class="testimonial-caption">
+                                        <p>
+                                            I have always wanted to be a techy guy but never got the oppurtunity, but i was
+                                            scrolling through my facebook feed one day and saw software development training Ad
+                                            i reluctantly enrolled sinceand  have not regreted doing so beacuse their instructors
+                                            make everything so easy and exciting to learn. Thank you Influenze Media Africa!
+                                        .</p>
+                                        <div class="rattiong-caption">
+                                            <span>Kolade Awoyemi<span>Enterpreneur</span> </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <!-- Testimonial End -->
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-11 col-sm-11">
+                    <!-- about-img -->
+                    <div class="about-img2">
+                        <img src="assets/img/gallery/about2.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- About-2 Area End -->
+    </main>
+   
+
+  
+
+{% endblock %}

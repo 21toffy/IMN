@@ -1,88 +1,146 @@
 
 {% extends "base.html" %}
 
-{% block style %}
-  <style>
-.read-more{
-  color: #192965;
-  background: #fff;
-  padding: 5px 10px;
-  margin: 30px 0px;
-  border: 2px solid #192965;
-  border-radius: 3px;
-  transition: .3s all;
-  -webkit-transition: .3s all;
-}
-
-
-.read-more a{
-	color:#192965;
-}
-.read-more:hover, .read-more:focus{
-  color: #192965;
-  border: 2px solid #192965;
-  opacity: 0.8;
-  padding: 11.5px 20px;
-  transition: 0.8s all;
-
-}  
-</style>
-{% endblock style %}
-
 
 {% block body %}
 
-<br><br>    
-    <br>
-    <br><br>    
-    <br>
-
-    {% for blo in red %}
-
-    
-    {% if blo %}
-      
-    
-      
- 
-	  <div class="row justify-content-center align-items-center">
-        
-        <div class="col-lg-7 col-md-offset-3 col-md-6  col-sm-12">
-          <div class="bd-example">
-              <a href="{% url 'myapp:post_detail' blo.pk %}"><h2 class="text-center animated slideInLeft delay-0.5s">{{blo.title}}</h2></a><br>
-              <p class="text-left animated slideInLeft	delay-0.5s">{{blo.text |slice:":500"}}</p>
-          </div>
-          
+<main>
+    <!--? Hero Start -->
+    <!-- <div class="slider-area2">
+        <div class="slider-height2 d-flex align-items-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="hero-cap hero-cap2 pt-50 text-center">
+                            <h2>Blog</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </div> -->
+    <!-- Hero End -->
+    <!--? Blog Area Start-->
+    <br><br>
+    <br>
+    <section class="blog_area section-padding">
+        <div class="container">
+            <div class="row">
+              
+              <div class="col-lg-8 mb-5 mb-lg-0">
+                <div class="blog_left_sidebar">
+                  {% for blog in posts %}
+                  <article class="blog_item">
+                            <div class="blog_item_img">
+                              
+                              {% if blog.landing_image %}
+                                <img class="card-img rounded-0" src="{{ blog.landing_image.url }}" alt="" width="200" height="300">
+                                
+                              {% endif %}
+                                
+                                <a href="#" class="blog_item_date">
+                                    <h3>{{blog.time.day}}</h3>
+                                    <p>{{blog.time|date:"M"}}</p>
+                                </a>
+                            </div>
+                            <div class="blog_details">
+                                <a class="d-inline-block" href="blog_details.html">
+                                    <h2 class="blog-head" style="color: #2d2d2d;" href="{% url 'myapp:post_detail' blog.slug  %}">{{blog.title}}</h2>
+                                </a>
+                                <p>{{blog.text}}</p>
+                                <ul class="blog-info-link">
+                                    <li><a href="#"><i class="fa fa-user"></i> {{ blog.category }}</a></li>
+                                    <!-- <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li> -->
+                                </ul>
+                                
+                                <div class="text-center">
+
+                                  <a  href="{% url 'myapp:post_detail' blog.slug  %}"  style="color: #fff;" class="slash btn-primary">Read More &rarr;</a>
+                                </div>
+
+                            </div>
+                        </article>
+                        {% endfor %}
+
+                        
+                        <nav class="blog-pagination justify-content-center d-flex">
+                            <ul class="pagination">
+                                <li class="page-item">
+                                    <a href="#" class="page-link" aria-label="Previous">
+                                        <i class="ti-angle-left"></i>
+                                    </a>
+                                </li>
+                                <li class="page-item">
+                                    <a href="#" class="page-link">1</a>
+                                </li>
+                                <li class="page-item active">
+                                    <a href="#" class="page-link">2</a>
+                                </li>
+                                <li class="page-item">
+                                    <a href="#" class="page-link" aria-label="Next">
+                                        <i class="ti-angle-right"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="blog_right_sidebar">
         
-  
-        <div class="col-lg-5 col-md-6 col-sm-12">
-          <div class="pl-68 animated slideInRight	delay-0.5s" style="text-align: center;">
-              <img  style="width: 300px; height: 350px;" src="{{blo.img1.url}}"> 
-          </div>
-         
+                        <aside class="single_sidebar_widget newsletter_widget">
+                            <h4 class="widget_title" style="color: #2d2d2d;">Newsletter</h4>
+                            <form action="#">
+                                <div class="form-group">
+                                    <input type="email" class="form-control" onfocus="this.placeholder = ''"
+                                        onblur="this.placeholder = 'Enter email'" placeholder='Enter email' required>
+                                </div>
+                                <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn"
+                                    type="submit">Subscribe</button>
+                            </form>
+                        </aside>
+                      
+                        <aside class="single_sidebar_widget instagram_feeds">
+                            <h4 class="widget_title" style="color: #2d2d2d;">Instagram Feeds</h4>
+                            <ul class="instagram_row flex-wrap">
+                                <li>
+                                    <a href="#">
+                                        <img class="img-fluid" src="assets/img/post/post_5.png" alt="">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img class="img-fluid" src="assets/img/post/post_6.png" alt="">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img class="img-fluid" src="assets/img/post/post_7.png" alt="">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img class="img-fluid" src="assets/img/post/post_8.png" alt="">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img class="img-fluid" src="assets/img/post/post_9.png" alt="">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img class="img-fluid" src="assets/img/post/post_10.png" alt="">
+                                    </a>
+                                </li>
+                            </ul>
+                        </aside>
+
+                    </div>
+                </div>
+            </div>
         </div>
-        <button class="read-more float-center"  >
-            <a style="text-align:center;" class="" href="{% url 'myapp:post_detail' blo.pk %}">read more</a> </button>
-        
-     
-        
-      </div>
-      <br><br>
-      {% endif %}
-      {% endfor %}
-     
-     
-
-
-
-
-
-
-
-
-
-
-
-        
+    </section>
+    <!-- Blog Area End -->
+</main>
 {% endblock body %}

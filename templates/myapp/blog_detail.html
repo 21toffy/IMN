@@ -14,14 +14,14 @@
                             
                     </div>
                     <div class="blog_details">
-                       <h2 style="color: #2d2d2d;">{{post_detail.titl.urle}}
+                       <h2 style="color: #2d2d2d;">{{post_detail.title}}
                        </h2>
                        <ul class="blog-info-link mt-3 mb-4">
-                          <li><a href="#"><i class="fa fa-user"></i> {{post_detail.cate.urlgory}}</a></li>
-                          <li><a href="#"><i class="fa fa-clock"></i> {{post_detail.time.url}}</a></li>
+                          <li><a href="#"><i class="fa fa-user"></i> {{post_detail.category}}</a></li>
+                          <li><a href="#"><i class="fa fa-clock"></i> {{post_detail.time}}</a></li>
                        </ul>
                        <p class="excert">
-                          {{post_detail.text.url}}
+                          {{post_detail.text}}
                        </p>
                        <!-- <div class="quote-wrapper">
                             <div class="quotes">
@@ -49,7 +49,10 @@
                                     <div class="carousel-item active">  
                                     
                                     {% if post_detail.img2 %}
-                                        <img src="{{post_detail.img2.url}}" alt="Slider-1" />  
+                                    <div class="text-center">
+
+                                        <img src="{{post_detail.img2.url}}" class="img-fluid h-200" style="" alt="Slider-1" />  
+                                    </div>
                                     {% endif %}
                                         <!-- <div class="carousel-caption">
                                       
@@ -61,7 +64,10 @@
                                     
                                     {% if post_detail.img3 %}
                                         
-                                        <img src="{{post_detail.img3.url}}" alt="Slider-2" />  
+                                    <div class="text-center">
+
+                                        <img src="{{post_detail.img3.url}}" class="img-fluid h-200" style="" alt="Slider-2" />  
+                                    </div>
                                     {% endif %}
                                         
                                         <!-- <div class="carousel-caption">
@@ -74,7 +80,10 @@
                                     
                                     {% if post_detail.img4 %}
                                         
-                                        <img src="{{post_detail.img4.url}}" alt="Slider-3" />  
+                                    <div class="text-center">
+
+                                        <img src="{{post_detail.img4.url}}" class="img-fluid h-200" style="" alt="Slider-3" />  
+                                    </div>
                                     {% endif %}
                                         
                                         <!-- <div class="carousel-caption">
@@ -87,7 +96,10 @@
                                     
                                     {% if post_detail.img5 %}
                                         
-                                        <img src="{{post_detail.img5.url}}" alt="Slider-4" />  
+                                    <div class="text-center">
+
+                                        <img src="{{post_detail.img5.url}}" class="img-fluid h-200" style="" alt="Slider-4" />  
+                                    </div>
                                     {% endif %}
                                         
                                         <!-- <div class="carousel-caption">
@@ -100,7 +112,10 @@
                                     
                                     {% if post_detail.img6 %}
                                         
-                                        <img src="{{post_detail.img6.url}}" alt="Slider-5" />  
+                                    <div class="text-center">
+
+                                        <img src="{{post_detail.img6.url}}" class="img-fluid h-200" style="" alt="Slider-5" />  
+                                    </div>
                                     {% endif %}
                                         
                                         <!-- <div class="carousel-caption">

@@ -13,6 +13,10 @@
   background-color: #FFB50D;
   background-position: right;
 }
+        .carousel-inner img {  
+            width: 100%;  
+            height: 350px;  
+        } 
 
 /* Theme Description
 -------------------------------------------------

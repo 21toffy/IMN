@@ -14,29 +14,117 @@
                             
                     </div>
                     <div class="blog_details">
-                       <h2 style="color: #2d2d2d;">{{post_detail.title}}
+                       <h2 style="color: #2d2d2d;">{{post_detail.titl.urle}}
                        </h2>
                        <ul class="blog-info-link mt-3 mb-4">
-                          <li><a href="#"><i class="fa fa-user"></i> {{post_detail.category}}</a></li>
-                          <li><a href="#"><i class="fa fa-clock"></i> {{post_detail.time}}</a></li>
+                          <li><a href="#"><i class="fa fa-user"></i> {{post_detail.cate.urlgory}}</a></li>
+                          <li><a href="#"><i class="fa fa-clock"></i> {{post_detail.time.url}}</a></li>
                        </ul>
                        <p class="excert">
-                          {{post_detail.text}}
+                          {{post_detail.text.url}}
                        </p>
-                       <div class="quote-wrapper">
-                          <div class="quotes">
+                       <!-- <div class="quote-wrapper">
+                            <div class="quotes">
+                            <div class="text-center">
+                                 
+                       
                              MCSE boot camps have its supporters and its detractors. Some people do not understand why you
                              should have to spend money on boot camp when you can get the MCSE study materials yourself at
                              a fraction of the camp price. However, who has the willpower to actually sit through a
                              self-imposed MCSE training.
+                            </div>
                           </div>
-                       </div>
-
+                       </div>  -->
+                       <div class="container py-5">  
+                            <h4 class="text-center text-uppercase">media</h4>  
+                            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">  
+                                <ol class="carousel-indicators">  
+                                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>  
+                                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>  
+                                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>  
+                                    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>  
+                                    <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>  
+                                </ol>  
+                                <div class="carousel-inner">  
+                                    <div class="carousel-item active">  
+                                    
+                                    {% if post_detail.img2 %}
+                                        <img src="{{post_detail.img2.url}}" alt="Slider-1" />  
+                                    {% endif %}
+                                        <!-- <div class="carousel-caption">
+                                      
+                                            <h5>Slider-1</h5>  
+                                            <p>This is slider-1</p>  
+                                        </div>   -->
+                                    </div>  
+                                    <div class="carousel-item">  
+                                    
+                                    {% if post_detail.img3 %}
+                                        
+                                        <img src="{{post_detail.img3.url}}" alt="Slider-2" />  
+                                    {% endif %}
+                                        
+                                        <!-- <div class="carousel-caption">
+                                      
+                                            <h5>Slider-2</h5>  
+                                            <p>This is slider-2</p>  
+                                        </div>   -->
+                                    </div>  
+                                    <div class="carousel-item">  
+                                    
+                                    {% if post_detail.img4 %}
+                                        
+                                        <img src="{{post_detail.img4.url}}" alt="Slider-3" />  
+                                    {% endif %}
+                                        
+                                        <!-- <div class="carousel-caption">
+                                      
+                                            <h5>Slider-3</h5>  
+                                            <p>This is slider-3</p>  
+                                        </div>   -->
+                                    </div>  
+                                    <div class="carousel-item">  
+                                    
+                                    {% if post_detail.img5 %}
+                                        
+                                        <img src="{{post_detail.img5.url}}" alt="Slider-4" />  
+                                    {% endif %}
+                                        
+                                        <!-- <div class="carousel-caption">
+                                      
+                                            <h5>Slider-4</h5>  
+                                            <p>This is slider-4</p>  
+                                        </div>   -->
+                                    </div>  
+                                    <div class="carousel-item">  
+                                    
+                                    {% if post_detail.img6 %}
+                                        
+                                        <img src="{{post_detail.img6.url}}" alt="Slider-5" />  
+                                    {% endif %}
+                                        
+                                        <!-- <div class="carousel-caption">
+                                      
+                                            <h5>Slider-5</h5>  
+                                            <p>This is slider-5</p>  
+                                        </div>   -->
+                                    </div>  
+                                </div>  
+                                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">  
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>  
+                                    <span class="sr-only">Previous</span>  
+                                </a>  
+                                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">  
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>  
+                                    <span class="sr-only">Next</span>  
+                                </a>  
+                            </div>  
+                        </div>  
                     </div>
                  </div>
                  <div class="navigation-top">
                     <div class="d-sm-flex justify-content-between text-center">
-                       <p class="like-info"><span class="align-middle"><i class="fa fa-heart"></i></span>{{post_detail.author.first_name}}  {{post_detail.author.last_name}}</p>
+                       <p class="like-info"><span class="align-middle"><i class="fa fa-heart"></i></span>{{post_detail.auth.urlor.first_name}}  {{post_detail.auth.urlor.last_name}}</p>
                        <!-- <p class="like-info"></i></span>tjonfjonfjn</p> -->
 
                        

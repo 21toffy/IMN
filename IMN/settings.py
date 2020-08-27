@@ -35,7 +35,6 @@ INSTALLED_APPS = [
     'application',
     'users',
     'django_sass',
-    'blog',
     ]
 
 MIDDLEWARE = [

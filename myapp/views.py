@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, HttpResponse
-from . models import About, Services, Blog, Contact, Clientels, Testimonials, Gallery, Socials
+from . models import Blog
 from django.utils import timezone
 from django.views.generic import (TemplateView, ListView,
                                     DetailView, CreateView,
@@ -50,9 +50,6 @@ class PostDetailView(DetailView):
         context = super(PostDetailView, self).get_context_data(**kwargs)
         context['blog_list'] = Blog.objects.filter(time__lte=timezone.now()).order_by('-time')[0:10]
         return context
-
-    # def get_queryset(self):
-    #     return Blog.objects.filter(time__lte=timezone.now()).order_by('-time')
     
 def contact(request):
     return render(request, 'contact.html')

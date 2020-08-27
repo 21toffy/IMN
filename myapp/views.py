@@ -48,6 +48,21 @@ class PostDetailView(DetailView):
     model = Blog
     context_object_name='post_detail'
     
+    # def get_context_data(self, **kwargs):
+    #     context = super(RoomView, self).get_context_data(**kwargs)
+    #     context['workers'] = Worker.objects.all()
+    #     print context
+    #     return context
+
+    
+    def get_context_data(self, **kwargs):
+        context = super(PostDetailView, self).get_context_data(**kwargs)
+        context['blog_list'] = Blog.objects.filter(time__lte=timezone.now()).order_by('-time')[0:10]
+        return context
+
+    # def get_queryset(self):
+    #     return Blog.objects.filter(time__lte=timezone.now()).order_by('-time')
+    
 def contact(request):
     return render(request, 'contact.html')
 

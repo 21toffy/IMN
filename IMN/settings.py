@@ -20,6 +20,12 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['influenzmedianigeria.herokuapp.com', '127.0.0.1']
 
+EMAIL_HOST='smtp.gmail.com'
+
+EMAIL_HOST_USER='tosdoltos@gmail.com'
+EMAIL_HOST_PASSWORD='0Luw@t0funm1'
+EMAIL_PORT=587
+EMAIL_USE_TLS= True
 
 # Application definition
 
@@ -35,6 +41,7 @@ INSTALLED_APPS = [
     'application',
     'users',
     'django_sass',
+    'newsletters',
     ]
 
 MIDDLEWARE = [
@@ -148,4 +155,9 @@ import dj_database_url
 prod_db  =  dj_database_url.config(conn_max_age=500)
 
 DATABASES['default'].update(prod_db)
+
+
+MAILCHIMP_API_KEY='c2b6d9fd7d1c079cda81ec7e4c04d93c-us17'
+MAILCHIMP_DATA_CENTER = 'us17'
+MAILCHIMP_EMAIL_LIST_ID=''
 

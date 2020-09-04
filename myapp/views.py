@@ -5,17 +5,53 @@ from django.views.generic import (TemplateView, ListView,
                                     DetailView, CreateView,
                                     UpdateView, DeleteView)
 
+from newsletters.forms import NewsletterUserSignUpForm
+from newsletters.models import NewsletterUser
+
+from django.core.mail import send_mail
+from django.conf import settings
+from django.contrib import messages
 
 def home(request):
     print('if blog')
     if Blog:
         blogs=Blog.objects.filter(status=0).order_by('-time')[:3]
     
-    
+    form = NewsletterUserSignUpForm(request.POST or None)
+
+    if form.is_valid():
+        print('form valid')
+        email = request.POST.get('email')
+
+        newsletter = NewsletterUser(email=email)
+
+        # newsletter.save()
+        # instance = form.save(commit=False)
+        print('commit is false')
+        if NewsletterUser.objects.filter(email=email).exists():
+            messages.warning(request, 'your are already receiving Newsletters from us', "alert alert-warning alert-dismissible")
+
+            print('sorry this email already exists')
+        else:
+            print('about to be saved cause does not exist')
+            newsletter.save()
+            messages.success(request, 'your email has been submitted check your inbox', "alert alert-success alert-dismissible")
+
+            subject = "thank you for Joining our NewsLetters"
+            from_email = settings.EMAIL_HOST_USER
+            to_email = [email]
+            subscription_message = "welcome to Influenz media... if you will like to unsunscribe visit 12.0.0.1:8000/newsletter/unsubscribe"
+            send_mail(subject=subject, from_email=from_email, recipient_list=to_email, message=subscription_message, fail_silently=False)
+    else:
+        print('form not ')
+    # context = {}
+    # template = 'index.html'
+    # return render(request, template, context)
 
     context={
 
         'blogs':blogs,
+        'form':form
 
     }
 

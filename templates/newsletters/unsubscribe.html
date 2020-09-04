@@ -1,0 +1,74 @@
+
+{% extends 'base.html' %}
+
+{% block body %}
+
+{% load static %}
+<main>
+        <!--? Hero Start -->
+        <div class="slider-area2">
+            <div class="slider-height2 d-flex align-items-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="hero-cap hero-cap2 pt-50 text-center">
+                                <h2>Unsubscribe from our Newsletters</h2>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Hero End -->
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        
+            <div class="latest-wrapper">
+                    <div class="container">
+                        <div class="latest-area latest-height  section-bg2" data-background="{% static 'img/gallery/section_bg01.png' %}">
+                            <div class="row  align-items-center justify-content-between">
+                                <div class="col-xl-5 col-lg-7">
+                                    <div class="latest-caption">
+                                        <h2>subscribe to our news letter.</h2>
+                                    </div>
+                                </div>
+                                 <div class="col-xl-5 col-lg-5 col-md-10 ">
+                                    <div class="latest-subscribe">
+                                            <form method="POST" action="">
+                                                    {% csrf_token %}
+                                                    <input type="email" name="email" id="email" placeholder="Enter email">
+                                                
+                                                    <button type="submit">Unsubscribe</button>
+                                                </form>                     </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    </main>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+<!-- 
+<div class="container">
+    <h1>unsubxcribe from this</h1>
+        <form method="POST" action="">
+                {% csrf_token %}
+                <input type="email" name="email" id="email" placeholder="Enter email">
+            
+                <button type="submit">unsub my nifga</button>
+            </form>
+</div> -->
+
+
+{% endblock %}

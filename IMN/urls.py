@@ -9,6 +9,7 @@ import myapp.urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('newsletters/', include('newsletters.urls', namespace='newsletters')),
     path('', include('myapp.urls', namespace='myapp')),
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

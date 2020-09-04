@@ -1,0 +1,11 @@
+
+
+
+<form method="POST" action="{% url 'newsletters:newsletter_signup' %}">
+    {% csrf_token %}
+    <input type="email" name="email" id="email" placeholder="Enter email">
+
+    <button type="submit">shoot</button>
+</form>
+
+

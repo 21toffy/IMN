@@ -1,0 +1,1 @@
+welcome to Influenz media Africa News Letter... if you will like to unsunscribe visit 127.0.0.1:8000/newsletter/unsubscribe

@@ -8,9 +8,11 @@ from django.views.generic import (TemplateView, ListView,
 from newsletters.forms import NewsletterUserSignUpForm
 from newsletters.models import NewsletterUser
 
-from django.core.mail import send_mail
+from django.core.mail import send_mail, EmailMultiAlternatives
 from django.conf import settings
 from django.contrib import messages
+
+from django.template.loader import get_template
 
 def home(request):
     print('if blog')
@@ -40,8 +42,15 @@ def home(request):
             subject = "thank you for Joining our NewsLetters"
             from_email = settings.EMAIL_HOST_USER
             to_email = [email]
-            subscription_message = "welcome to Influenz media... if you will like to unsunscribe visit 12.0.0.1:8000/newsletter/unsubscribe"
-            send_mail(subject=subject, from_email=from_email, recipient_list=to_email, message=subscription_message, fail_silently=False)
+            # subscription_message = "welcome to Influenz media... if you will like to unsunscribe visit 127  .0.0.1:8000/newsletter/unsubscribe"
+            # send_mail(subject=subject, from_email=from_email, recipient_list=to_email, message=subscription_message, fail_silently=False)
+
+            with open(settings.BASE_DIR + "/templates/newsletters/sign_up_email.txt") as f:
+                subscription_message = f.read()
+            message = EmailMultiAlternatives(subject=subject, body=subscription_message, from_email=from_email, to=to_email)
+            html_template = get_template("newsletters/sign_up_email.html").render()
+            message.attach_alternative(html_template, "text/html ")
+            message.send()
     else:
         print('form not ')
     # context = {}

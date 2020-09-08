@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <style>
+        .email-subscription{
+            background-color: thistle;
+            color: black;
+            border:1px solid  thistle;
+            padding: 30px;
+        }
+        </style>
+
+    </head>
+            
+    <body>
+            <div class="container email-subscription">
+                <h2>Welcome to INFLUENZ MEDIA AFRICA</h2>
+                <br>
+                <h6>Hi there,</h6>
+                <h6>You just subscribed to our News Letter, We promise not to bug you with unecessary updates. Only important updates</h6>
+                click here to <a href="{% url 'newsletters:newsletter_unsubscribe' %}"> unsubscribe</a> if you change your mind.
+            </div>
+        </body>
+</html>

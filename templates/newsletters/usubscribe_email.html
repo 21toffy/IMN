@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <style>
+        .email-subscription{
+            background-color: rgb(248, 245, 248);
+            color: black;
+            border:1px solid  thistle;
+        }
+        </style>
+
+    </head>
+            
+    <body>
+            <div class="container email-subscription">
+                <h2>Do you ant to usubscribe?</h2>
+                <br>
+                <h6>We are sad to see you go.</h6>
+                <h6> click here to <a href="{% url 'myapp:index' %}"> Subscribe</a> if you change your mind.</h6>
+                
+            </div>
+        </body>
+</html>

@@ -40,6 +40,21 @@
                                 </div>
                                  <div class="col-xl-5 col-lg-5 col-md-10 ">
                                     <div class="latest-subscribe">
+                                            {% if messages %}
+                                
+                                            {% for message in messages %}
+                                            <div {% if message.tags %} class="{{message.tags}}"  {% endif %}role="alert">
+                                        
+                                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                      <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                    {{ message }}
+                                                  </div>
+                                                  {% endfor %}
+
+                                                  {% else %}
+                                
+                                        {% endif %}
                                             <form method="POST" action="">
                                                     {% csrf_token %}
                                                     <input type="email" name="email" id="email" placeholder="Enter email">

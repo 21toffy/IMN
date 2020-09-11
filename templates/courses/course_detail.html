@@ -1,0 +1,18 @@
+
+<form action="/course_register/" method="post" class="form-inline">
+    {% csrf_token %}
+    <div class="input-group mx-sm-3 mb-2">
+    <input
+        type="hidden"
+        class="form-group"
+        name="selected_course_id"
+        value="{{ course.id }}"
+    />
+    <button class="btn btn-secondary" type="submit">proceed to payment</button>
+</div>
+</form>
+
+
+{{course.name}}<br>
+{{course.details}}<br>
+{{course.price}}

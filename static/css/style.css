@@ -3273,8 +3273,9 @@ hr {
 
 /* line 123, C:/Users/HP/Desktop/jun-2020/278.Internet_service/assets/scss/_headerMenu.scss */
 .main-header .main-menu ul li a {
-  color: #22215A;
-  font-weight: 400;
+  color: #BB0C33;
+  /* 22215A */
+  font-weight: 900;
   padding: 39px 19px;
   display: block;
   font-size: 16px;
@@ -3294,7 +3295,8 @@ hr {
 
 /* line 136, C:/Users/HP/Desktop/jun-2020/278.Internet_service/assets/scss/_headerMenu.scss */
 .main-header .main-menu ul li:hover > a {
-  color: #BB0C33;
+  color: #22215A;
+  /* 22215A */
 }
 
 /* line 141, C:/Users/HP/Desktop/jun-2020/278.Internet_service/assets/scss/_headerMenu.scss */

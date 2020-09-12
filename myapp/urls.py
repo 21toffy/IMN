@@ -14,3 +14,5 @@ urlpatterns = [
     path('blog/<slug:slug>/', views.PostDetailView.as_view(), name='post_detail'),
 ]
 
+
+

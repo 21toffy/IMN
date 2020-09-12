@@ -9,17 +9,6 @@ from django.contrib import messages
 from .forms import CourseForm, UserCourseForm
 from .models import Course, UserCourse
 
-# def NewModuleView(request, id):
-#     course = get_object_or_404(Course,  id=id)
-#     form = ModuleForm(request.POST or None, request.FILES or None)
-#     if form.is_valid():
-#         new_module=form.save(commit=False)
-#         new_module.course=course
-#         new_module.save()
-#         return redirect('lms:course_list')
-#     return render(request, 'lms/new_module.html', context = {'form':form, 'course':course})
-
-
 
 def course_list(request):
     courses = Course.objects.all()
@@ -36,21 +25,9 @@ def course_detail (request, id):
     template = 'courses/course_detail.html'
     return render(request, template, context)
 
-    
+# on the course detail page(check course_detail.html) when you click on proceed to payment the button is a form that passes the course id to a course_register view(check courses/views.py) to get the details of the selected  course to the course register view, this view is supposed to display an already filled form(check courses/forms.py), filled with the logged in user (request.user), course price, course name and a button to pass these details to paystack(check template/register_course.html) but the problem is that when you click on the proceed to payment button in the course detail page the course register page does not display any form as i want it to but it rather posts an empty form
 
 
-
-def NewModuleUpdateView(request, id):
-    # course = get_object_or_404(Course,  id=id)
-    module_to_update = get_object_or_404(Module,  id=id)
-    form = ModuleForm(request.POST or None, request.FILES or None, instance = module_to_update)
-    if form.is_valid():
-        new_module=form.save(commit=False)
-        # new_module.course=course
-        new_module.save()
-        return redirect('lms:course_list')
-    return render(request, 'lms/new_module.html', context = {'form':form})
-    
 @login_required
 def course_register(request, id):
     course_id = request.POST.get('selected_course_id')

@@ -1,0 +1,10 @@
+<form action="courses:course_register" method='post'>
+    
+    {% csrf_token %} 
+    
+    <div class="container">
+        {{c_form.as_p}}
+        {{u_form.as_p}}
+    </div>
+    
+    <input type="submit" value="{{c_form}} {{u_form}}"></form>

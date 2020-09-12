@@ -1,6 +1,9 @@
-
-<form action="/course_register/" method="post" class="form-inline">
+{{course.name}}<br>
+{{course.details}}<br>
+{{course.price}}
+<form action="/course/register/{{course.id}}/" method="post" class="form-inline">
     {% csrf_token %}
+
     <div class="input-group mx-sm-3 mb-2">
     <input
         type="hidden"
@@ -12,7 +15,3 @@
 </div>
 </form>
 
-
-{{course.name}}<br>
-{{course.details}}<br>
-{{course.price}}

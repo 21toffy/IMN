@@ -37,34 +37,52 @@ def course_detail (request, id):
     return render(request, template, context)
 
     
-    pass
 
 
 
-
+def NewModuleUpdateView(request, id):
+    # course = get_object_or_404(Course,  id=id)
+    module_to_update = get_object_or_404(Module,  id=id)
+    form = ModuleForm(request.POST or None, request.FILES or None, instance = module_to_update)
+    if form.is_valid():
+        new_module=form.save(commit=False)
+        # new_module.course=course
+        new_module.save()
+        return redirect('lms:course_list')
+    return render(request, 'lms/new_module.html', context = {'form':form})
+    
 @login_required
-def course_register(request):
+def course_register(request, id):
     course_id = request.POST.get('selected_course_id')
-    course_selected = Course.objects.get(id=course_id)
+    course_selected = get_object_or_404(Course, id=course_id)
+    print('-------------------------------------------------------------------------')
+    print('-------------------------------------------------------------------------')
+    print('-------------------------------------------------------------------------')
+    u_form = UserCourseForm(instance=request.user)
+    c_form = CourseForm(instance=course_selected)
     if request.method == 'POST':
-        form1 = UserCourseForm(request.POST)
-        form2 = CourseForm(request.POST, instance=course_selected)
-        if request.user.is_authenticated():
-            form1.user = request.user
-            if form2.is_valid():
-                form2.save()
-                return render(request, 'template_folder/payment.html', {'email':request.user.email, 'price':form2.price})
-            else:
-                return HttpResponse('Sorry refresh page and try again!!')
-    else:
+        # print('request is post')
+        u_form = UserCourseForm(request.POST, instance=request.user)
+        c_form = CourseForm(request.POST, instance=course_selected)
+        print(u_form)
+        print(c_form)
+        
+        if u_form.is_valid() and c_form.is_valid():
+            print('valid data')
+            u_form.save()
+            c_form.save()
 
-        form1 = UserCourseForm(request.POST)
-        form2 = CourseForm(request.POST, instance=course_selected)
+            return render(request, 'courses/payment.html', {'email':request.user.email, 'price':c_form.price})
+        else:
+            return HttpResponse('Sorry refresh page and try again!!')
+    else:
+        u_form = UserCourseForm(instance=request.user)
+        c_form = CourseForm(instance=course_selected)
     context = {
-        'form1':form1,
-        'form2':form2
+        'u_form':u_form,
+        'c_form':c_form
     }
-    return render(request, 'template_folder/register_course.html', context)
+    return render(request, 'courses/register_course.html', context)
 
     
 
